@@ -1,3 +1,12 @@
+import http from 'http';
+
+// Render'ın botu kapatmaması için sahte web portu
+const PORT = process.env.PORT || 3000;
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Minecraft Botu Aktif!');
+}).listen(PORT, () => {
+  console.log(`Render portu ${PORT} üzerinde dinleniyor...`);});
 // runner.mjs  —  SD AI Bot Bağlayıcısı
 // Kurulum:  npm init -y && npm pkg set type=module && npm i mineflayer bedrock-protocol
 // Çalıştır: node runner.mjs      (bu pencere AÇIK kalmalı, yoksa bot oyuna giremez)
